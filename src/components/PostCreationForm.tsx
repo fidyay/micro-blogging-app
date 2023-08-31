@@ -1,10 +1,10 @@
 import AppBlockWrapper from "./AppBlockWrapper";
-import { TextField } from "@mui/material";
 import { MuiFileInput } from "mui-file-input";
 import { useState } from "react";
 import Heading from "./Heading";
 import TextButton from "./TextButton";
 import AppTextField from "./AppTextField";
+import AppImagePicker from "./AppImagePicker";
 
 function FormCreationForm() {
   const [value, setValue] = useState<File | null>(null);
@@ -32,10 +32,8 @@ function FormCreationForm() {
           multiline
           minRows={3}
         />
-        <MuiFileInput
-          inputProps={{ accept: "image/*" }}
+        <AppImagePicker
           sx={{ my: 1 }}
-          fullWidth
           label="Select image"
           value={value}
           onChange={handleChange}
