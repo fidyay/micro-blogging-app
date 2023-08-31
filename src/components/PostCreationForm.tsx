@@ -1,5 +1,4 @@
 import AppBlockWrapper from "./AppBlockWrapper";
-import { MuiFileInput } from "mui-file-input";
 import { useState } from "react";
 import Heading from "./Heading";
 import TextButton from "./TextButton";
