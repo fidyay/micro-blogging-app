@@ -6,10 +6,9 @@ import { ComponentSx } from "@/pages/_app";
 
 interface UserInfoProps {
   sx?: ComponentSx;
-  chosen?: boolean;
 }
 
-function UserInfo({ sx = {}, chosen = false }: UserInfoProps) {
+function UserInfo({ sx = {} }: UserInfoProps) {
   return (
     <Box
       sx={{
@@ -17,7 +16,6 @@ function UserInfo({ sx = {}, chosen = false }: UserInfoProps) {
         alignItems: "center",
         px: 1,
         py: 0.5,
-        bgcolor: chosen ? "info.main" : "",
         ...sx,
       }}
     >

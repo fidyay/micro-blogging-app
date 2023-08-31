@@ -6,3 +6,6 @@ a {
   text-decoration: none;
   color: #a3a3af;
 }
+a.chosen {
+  background-color: #292a2e;
+}

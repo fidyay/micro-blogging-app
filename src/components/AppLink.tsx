@@ -12,7 +12,10 @@ function AppLink({ id, chosen = false }: AppLinkProps) {
   const router = useRouter();
   if (id === "general") {
     return (
-      <Link href="/general">
+      <Link
+        className={router.pathname === "/general" ? "chosen" : ""}
+        href="/general"
+      >
         <Heading
           sx={{
             width: "115px",
@@ -20,7 +23,6 @@ function AppLink({ id, chosen = false }: AppLinkProps) {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            bgcolor: router.pathname === "/general" ? "info.main" : "",
           }}
         >
           General
@@ -29,8 +31,11 @@ function AppLink({ id, chosen = false }: AppLinkProps) {
     );
   } else {
     return (
-      <Link href={`/author/${id}`}>
-        <UserInfo chosen={router.pathname === `/author/${id}`} />
+      <Link
+        className={router.pathname === `/author/${id}` ? "chosen" : ""}
+        href={`/author/${id}`}
+      >
+        <UserInfo />
       </Link>
     );
   }
