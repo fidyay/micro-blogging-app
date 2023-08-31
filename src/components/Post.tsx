@@ -1,4 +1,4 @@
-import { Paper, Typography, Button, Avatar, Box } from "@mui/material";
+import { Paper, Typography, Button, Box } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CommentIcon from "@mui/icons-material/Comment";
 import UserInfo from "./UserInfo";
