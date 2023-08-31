@@ -7,6 +7,7 @@ interface AppTextFieldProps {
   minRows?: number;
   sx?: ComponentSx;
   required?: boolean;
+  type?: "text" | "password" | "email";
 }
 
 function AppTextField({
@@ -15,9 +16,11 @@ function AppTextField({
   minRows = 1,
   sx = {},
   required = false,
+  type = "text",
 }: AppTextFieldProps) {
   return (
     <TextField
+      type={type}
       sx={{
         ...sx,
         "&:hover .MuiFormLabel-root": {
