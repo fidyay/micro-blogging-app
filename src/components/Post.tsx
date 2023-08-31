@@ -25,7 +25,7 @@ function Post({ id }: PostProps) {
   return (
     <AppBlockWrapper sx={{ mb: 1, py: 1 }}>
       <UserInfo sx={{ mx: 1, pl: 0 }} />
-      <Heading sx={{ mx: 1 }}>Title</Heading>
+      <Heading sx={{ mx: 1, mt: 1 }}>Title</Heading>
       <Typography sx={{ mx: 1 }}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident
         eveniet reiciendis aperiam impedit! Aut aliquam totam possimus.
