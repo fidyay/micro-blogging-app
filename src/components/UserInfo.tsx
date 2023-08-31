@@ -1,14 +1,31 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import UserAvatar from "./UserAvatar";
 import Heading from "./Heading";
 import DateText from "./DateText";
+import { ComponentSx } from "@/pages/_app";
 
-function UserInfo() {
+interface UserInfoProps {
+  sx?: ComponentSx;
+  chosen?: boolean;
+}
+
+function UserInfo({ sx = {}, chosen = false }: UserInfoProps) {
   return (
-    <Box>
-      <UserAvatar>Ex</UserAvatar>
-      <Heading>Author</Heading>
-      <DateText date="12.12.2012" />
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        px: 1,
+        py: 0.5,
+        bgcolor: chosen ? "info.main" : "",
+        ...sx,
+      }}
+    >
+      <UserAvatar sx={{ mr: 1 }}>Ex</UserAvatar>
+      <Box>
+        <Heading sx={{ fontSize: 14 }}>Author</Heading>
+        <DateText sx={{ fontSize: 12 }} date="12.12.2012" />
+      </Box>
     </Box>
   );
 }
