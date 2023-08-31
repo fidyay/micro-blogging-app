@@ -37,7 +37,9 @@ const muiTheme = createTheme({
       dark: "#b02838",
     },
     info: {
-      main: "#292a2e",
+      main: "#e7f6f9",
+      dark: "#292a2e",
+      light: "#3b3c42",
     },
   },
 });

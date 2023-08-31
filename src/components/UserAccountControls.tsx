@@ -2,7 +2,7 @@ import AppBlockWrapper from "./AppBlockWrapper";
 import UserAvatar from "./UserAvatar";
 import Heading from "./Heading";
 import DateText from "./DateText";
-import AppButton from "./AppButton";
+import TextButton from "./TextButton";
 import { SxProps, Theme } from "@mui/material";
 
 const buttonStyles: SxProps<Theme> = {
@@ -27,11 +27,11 @@ export default function UserAccount() {
       </UserAvatar>
       <Heading>Name Surname</Heading>
       <DateText sx={{ mb: 1 }} date="12.12.2012" shouldAddSince />
-      <AppButton sx={buttonStyles}>Edit account</AppButton>
-      <AppButton sx={buttonStyles}>Logout</AppButton>
-      <AppButton warning sx={{ ...buttonStyles, mb: 0 }}>
+      <TextButton sx={buttonStyles}>Edit account</TextButton>
+      <TextButton sx={buttonStyles}>Logout</TextButton>
+      <TextButton warning sx={{ ...buttonStyles, mb: 0 }}>
         Delete account
-      </AppButton>
+      </TextButton>
     </AppBlockWrapper>
   );
 }
