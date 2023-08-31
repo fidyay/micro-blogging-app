@@ -1,3 +1,4 @@
+import "../global.css";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -7,7 +8,15 @@ import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
 import { useState } from "react";
 import { Database } from "../../database.types";
-import { CssBaseline, createTheme, ThemeProvider } from "@mui/material";
+import {
+  CssBaseline,
+  createTheme,
+  ThemeProvider,
+  SxProps,
+  Theme,
+} from "@mui/material";
+
+export type ComponentSx = SxProps<Theme>;
 
 const muiTheme = createTheme({
   palette: {
@@ -20,6 +29,12 @@ const muiTheme = createTheme({
     secondary: {
       main: "#116dfe",
       contrastText: "#e7f6f9",
+      dark: "#0f5ad1",
+    },
+    warning: {
+      main: "#de3548",
+      contrastText: "#e7f6f9",
+      dark: "#b02838",
     },
   },
 });

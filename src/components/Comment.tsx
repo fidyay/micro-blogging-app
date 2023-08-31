@@ -1,15 +1,15 @@
 import UserInfo from "./UserInfo";
-import { Paper, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import AppBlockWrapper from "./AppBlockWrapper";
 
 function Comment() {
   return (
-    <Paper>
+    <AppBlockWrapper>
       <UserInfo />
-      <Typography>Title</Typography>
       <Typography>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
       </Typography>
-    </Paper>
+    </AppBlockWrapper>
   );
 }
 

@@ -1,8 +1,10 @@
-import { Paper, Typography, Button, Box } from "@mui/material";
+import { Typography, Button, Box } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CommentIcon from "@mui/icons-material/Comment";
 import UserInfo from "./UserInfo";
 import CommentList from "./CommentList";
+import AppBlockWrapper from "./AppBlockWrapper";
+import Heading from "./Heading";
 
 interface PostProps {
   id: string;
@@ -10,9 +12,9 @@ interface PostProps {
 
 function Post({ id }: PostProps) {
   return (
-    <Paper>
+    <AppBlockWrapper>
       <UserInfo />
-      <Typography>Title</Typography>
+      <Heading>Title</Heading>
       <Typography>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident
         eveniet reiciendis aperiam impedit! Aut aliquam totam possimus.
@@ -32,7 +34,7 @@ function Post({ id }: PostProps) {
         </Box>
       </Box>
       <CommentList />
-    </Paper>
+    </AppBlockWrapper>
   );
 }
 

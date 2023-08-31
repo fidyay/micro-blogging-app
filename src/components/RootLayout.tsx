@@ -5,5 +5,16 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  return <Container>{children}</Container>;
+  return (
+    <Container
+      sx={{
+        display: "flex",
+        bgcolor: "primary.main",
+        alignItems: "flex-start",
+        py: 1,
+      }}
+    >
+      {children}
+    </Container>
+  );
 }

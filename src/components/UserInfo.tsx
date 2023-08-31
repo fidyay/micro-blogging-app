@@ -1,11 +1,14 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import UserAvatar from "./UserAvatar";
+import Heading from "./Heading";
+import DateText from "./DateText";
 
 function UserInfo() {
   return (
     <Box>
-      <Avatar>Ex</Avatar>
-      <Typography>Author</Typography>
-      <Typography>12.12.2202</Typography>
+      <UserAvatar>Ex</UserAvatar>
+      <Heading>Author</Heading>
+      <DateText date="12.12.2012" />
     </Box>
   );
 }
