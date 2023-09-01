@@ -13,6 +13,18 @@ a.chosen {
   background-color: #292a2e;
 }
 
+.text_link {
+  text-align: center;
+  text-decoration: underline;
+  color: #116dfe;
+  margin-bottom: 10px;
+}
+
+.text_link:hover {
+  background-color: transparent;
+  color: #0f5ad1;
+}
+
 img {
   margin-left: 8px;
 }

@@ -15,6 +15,7 @@ import {
   FormControlLabel,
   Radio,
 } from "@mui/material";
+import AppTextLink from "./AppTextLink";
 
 function useSignUpMutation() {
   const router = useRouter();
@@ -180,6 +181,7 @@ function SignUpForm() {
             />
           </RadioGroup>
         </FormControl>
+        <AppTextLink href="/login">Or you can log in.</AppTextLink>
         <TextButton type="submit">Submit</TextButton>
       </form>
     </AppBlockWrapper>

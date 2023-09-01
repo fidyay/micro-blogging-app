@@ -7,6 +7,7 @@ import { Typography } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useMutation } from "react-query";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import AppTextLink from "./AppTextLink";
 
 function useLoginMutation() {
   const router = useRouter();
@@ -76,6 +77,7 @@ function LoginForm() {
           label="Password"
           register={register("password")}
         />
+        <AppTextLink href="/sign-up">Or you can sign up.</AppTextLink>
         <TextButton type="submit">Submit</TextButton>
       </form>
     </AppBlockWrapper>
