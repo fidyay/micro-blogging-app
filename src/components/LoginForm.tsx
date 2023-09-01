@@ -8,6 +8,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useMutation } from "react-query";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import AppTextLink from "./AppTextLink";
+import ErrorText from "./ErrorText";
 
 function useLoginMutation() {
   const router = useRouter();
@@ -56,11 +57,7 @@ function LoginForm() {
         className="form_sign-in"
       >
         <Heading sx={{ mb: 1 }}>Login</Heading>
-        {Object.keys(errors).length ? (
-          <Typography sx={{ color: "warning.main" }}>
-            Some error occured :(
-          </Typography>
-        ) : null}
+        {Object.keys(errors).length ? <ErrorText /> : null}
         <AppTextField
           sx={{
             my: 1,

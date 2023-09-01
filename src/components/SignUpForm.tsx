@@ -4,10 +4,10 @@ import TextButton from "./TextButton";
 import AppTextField from "./AppTextField";
 import AppImagePicker from "./AppImagePicker";
 import { useRouter } from "next/router";
-import { Typography } from "@mui/material";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { useMutation } from "react-query";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import ErrorText from "./ErrorText";
 import {
   FormControl,
   FormLabel,
@@ -91,11 +91,7 @@ function SignUpForm() {
         className="form_sign-in"
       >
         <Heading sx={{ mb: 1 }}>Sign up</Heading>
-        {Object.keys(errors).length ? (
-          <Typography sx={{ color: "warning.main" }}>
-            Some error occured :(
-          </Typography>
-        ) : null}
+        {Object.keys(errors).length ? <ErrorText /> : null}
         <AppTextField
           sx={{
             my: 1,
