@@ -4,6 +4,13 @@ import Heading from "./Heading";
 import TextButton from "./TextButton";
 import AppTextField from "./AppTextField";
 import AppImagePicker from "./AppImagePicker";
+import {
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+} from "@mui/material";
 
 function SignInForm() {
   const [value, setValue] = useState<File | null>(null);
@@ -23,7 +30,7 @@ function SignInForm() {
         padding: 1,
       }}
     >
-      <form>
+      <form className="form_sign-in">
         <Heading sx={{ mb: 1 }}>Sign in</Heading>
         <AppTextField
           sx={{
@@ -52,6 +59,51 @@ function SignInForm() {
           value={value}
           onChange={handleChange}
         />
+        <FormControl>
+          <FormLabel
+            sx={{
+              color: "primary.contrastText",
+              "&.Mui-focused": { color: "primary.contrastText" },
+            }}
+          >
+            Role
+          </FormLabel>
+          <RadioGroup
+            sx={{ mb: 1 }}
+            aria-labelledby="radio-buttons-group-label"
+            defaultValue="commentator"
+            name="radio-buttons-group"
+          >
+            <FormControlLabel
+              value="commentator"
+              control={
+                <Radio
+                  sx={{
+                    color: "primary.contrastText",
+                    "&.Mui-checked": {
+                      color: "secondary.contrastText",
+                    },
+                  }}
+                />
+              }
+              label="Commentator"
+            />
+            <FormControlLabel
+              value="author"
+              control={
+                <Radio
+                  sx={{
+                    color: "primary.contrastText",
+                    "&.Mui-checked": {
+                      color: "secondary.contrastText",
+                    },
+                  }}
+                />
+              }
+              label="Author"
+            />
+          </RadioGroup>
+        </FormControl>
         <TextButton>Submit</TextButton>
       </form>
     </AppBlockWrapper>

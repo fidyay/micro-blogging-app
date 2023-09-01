@@ -20,3 +20,8 @@ img {
 .form_padding {
   padding: 8px;
 }
+
+.form_sign-in {
+  display: flex;
+  flex-direction: column;
+}
