@@ -15,6 +15,9 @@ import {
   SxProps,
   Theme,
 } from "@mui/material";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 export type ComponentSx = SxProps<Theme>;
 
@@ -52,11 +55,13 @@ export default function App({ Component, pageProps }: AppProps) {
       supabaseClient={supabaseClient}
       initialSession={pageProps.initialSession}
     >
-      <ThemeProvider theme={muiTheme}>
-        <CssBaseline>
-          <Component {...pageProps} />
-        </CssBaseline>
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={muiTheme}>
+          <CssBaseline>
+            <Component {...pageProps} />
+          </CssBaseline>
+        </ThemeProvider>
+      </QueryClientProvider>
     </SessionContextProvider>
   );
 }

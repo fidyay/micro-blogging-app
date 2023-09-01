@@ -1,21 +1,33 @@
 import { MuiFileInput } from "mui-file-input";
 import { ComponentSx } from "@/pages/_app";
+import { forwardRef } from "react";
 
 interface AppImagePickerProps {
   label: string;
   sx?: ComponentSx;
   required?: boolean;
-  onChange: (newValue: File | null) => void;
+  onChange: (...event: any[]) => void;
   value: File | null;
+  name: string;
+  helperText: string;
+  onBlur: (...event: any[]) => void;
+  error: boolean;
 }
 
-function AppImagePicker({
-  label,
-  sx = {},
-  required = false,
-  value,
-  onChange,
-}: AppImagePickerProps) {
+const AppImagePicker = forwardRef(function AppImagePicker(
+  {
+    label,
+    sx = {},
+    required = false,
+    value,
+    onChange,
+    onBlur,
+    name,
+    helperText,
+    error,
+  }: AppImagePickerProps,
+  ref: React.Ref<any>
+) {
   return (
     <MuiFileInput
       sx={{
@@ -66,13 +78,17 @@ function AppImagePicker({
       required={required}
       fullWidth
       label={label}
-      name={label.toLowerCase()}
+      name={name}
       value={value}
       onChange={onChange}
+      helperText={helperText}
+      onBlur={onBlur}
       hideSizeText
+      error={error}
       inputProps={{ accept: "image/*" }}
+      ref={ref}
     />
   );
-}
+});
 
 export default AppImagePicker;

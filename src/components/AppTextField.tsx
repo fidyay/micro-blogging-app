@@ -1,5 +1,7 @@
 import { TextField } from "@mui/material";
 import { ComponentSx } from "@/pages/_app";
+import { UseFormRegisterReturn } from "react-hook-form";
+import { forwardRef } from "react";
 
 interface AppTextFieldProps {
   label: string;
@@ -8,16 +10,21 @@ interface AppTextFieldProps {
   sx?: ComponentSx;
   required?: boolean;
   type?: "text" | "password" | "email";
+  register?: UseFormRegisterReturn<string>;
 }
 
-function AppTextField({
-  label,
-  multiline = false,
-  minRows = 1,
-  sx = {},
-  required = false,
-  type = "text",
-}: AppTextFieldProps) {
+const AppTextField = forwardRef(function AppTextField(
+  {
+    label,
+    multiline = false,
+    minRows = 1,
+    sx = {},
+    required = false,
+    type = "text",
+    register,
+  }: AppTextFieldProps,
+  ref: React.Ref<any>
+) {
   return (
     <TextField
       type={type}
@@ -57,11 +64,11 @@ function AppTextField({
       required={required}
       fullWidth
       label={label}
-      name={label.toLowerCase()}
       multiline={multiline}
       minRows={minRows}
+      {...register}
     />
   );
-}
+});
 
 export default AppTextField;
