@@ -8,9 +8,10 @@ import { useUserInfoQuery } from "./UserAccountControls";
 
 interface CommentListProps {
   expanded?: boolean;
+  postId: string;
 }
 
-function CommentList({ expanded = false }: CommentListProps) {
+function CommentList({ expanded = false, postId }: CommentListProps) {
   const router = useRouter();
   const user = useUser();
   const supabaseClient = useSupabaseClient();
@@ -31,7 +32,9 @@ function CommentList({ expanded = false }: CommentListProps) {
       elevation={0}
     >
       <Divider sx={{ bgcolor: "primary.contrastText" }} />
-      {shouldRenderLeaveCommentForm ? <LeaveCommentForm /> : null}
+      {shouldRenderLeaveCommentForm ? (
+        <LeaveCommentForm postId={postId} />
+      ) : null}
       <Heading sx={{ m: 1 }}>Comments</Heading>
       {[1, 2, 3].map((comment, index) => (
         <Comment key={index} />
