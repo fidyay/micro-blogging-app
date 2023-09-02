@@ -9,7 +9,6 @@ import {
   useSupabaseClient,
   SupabaseClient,
   useUser,
-  User,
 } from "@supabase/auth-helpers-react";
 import { useQueryClient, QueryClient, useQuery } from "react-query";
 import ErrorText from "./ErrorText";
@@ -25,39 +24,6 @@ export type SBClient = SupabaseClient<any, "public", any>;
 async function LogOut(supabaseClient: SBClient) {
   const { error } = await supabaseClient.auth.signOut();
   if (error) console.error(error);
-}
-
-async function DeleteAccount(
-  user: User | null,
-  supabaseClient: SBClient,
-  queryClient: QueryClient
-) {
-  if (user) {
-    try {
-      const { data: dataBucket, error: errorBucket } =
-        await supabaseClient.storage
-          .from("images")
-          .remove([`avatars/${user.id}`]);
-      const { error } = await supabaseClient.auth.signOut();
-    } catch (e) {
-      console.log(e);
-    }
-
-    const { error: dbError } = await supabaseClient
-      .from("users")
-      .delete()
-      .eq("id", user.id);
-    if (dbError) console.error(dbError);
-
-    // this is not possible to delete rows of auth.users on client
-    try {
-      await fetch("/api/delete_user");
-    } catch (e) {
-      console.error(e);
-    } finally {
-      queryClient.invalidateQueries(["users", user.id]);
-    }
-  }
 }
 
 export interface UserData {
@@ -150,15 +116,11 @@ export default function UserAccountControls() {
             date={data?.since as string}
             shouldAddSince
           />
-          <TextButton onClick={() => LogOut(supabaseClient)} sx={buttonStyles}>
-            Logout
-          </TextButton>
           <TextButton
-            onClick={() => DeleteAccount(user, supabaseClient, queryClient)}
-            warning
+            onClick={() => LogOut(supabaseClient)}
             sx={{ ...buttonStyles, mb: 0 }}
           >
-            Delete account
+            Logout
           </TextButton>{" "}
         </>
       ) : (
