@@ -10,7 +10,7 @@ import {
   SupabaseClient,
   useUser,
 } from "@supabase/auth-helpers-react";
-import { useQueryClient, QueryClient, useQuery } from "react-query";
+import { useQueryClient, useQuery } from "react-query";
 import ErrorText from "./ErrorText";
 import AppCircularProgress from "./AppCircularProgress";
 
