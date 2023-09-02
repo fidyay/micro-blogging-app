@@ -1,6 +1,8 @@
 import { NextApiHandler } from "next";
 import { createPagesServerClient } from "@supabase/auth-helpers-nextjs";
 
+// exchanging supabase codes on server
+
 const handler: NextApiHandler = async (req, res) => {
   const { code } = req.query;
 

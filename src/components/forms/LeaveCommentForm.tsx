@@ -9,6 +9,7 @@ interface Inputs {
   text: string;
 }
 
+// mutation to save comment on db for specific post
 function useLeaveCommentMutation(
   postId: string,
   resetForm: UseFormReset<Inputs>,

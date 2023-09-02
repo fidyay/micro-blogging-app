@@ -14,6 +14,7 @@ interface AppImagePickerProps {
   error: boolean;
 }
 
+// image picker field for forms with styling
 const AppImagePicker = forwardRef(function AppImagePicker(
   {
     label,

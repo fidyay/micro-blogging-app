@@ -5,6 +5,7 @@ interface AppTextLinkProps {
   children: string;
 }
 
+// text links to navigate between pages
 function AppTextLink({ href, children }: AppTextLinkProps) {
   return (
     <Link className="text_link" href={href}>

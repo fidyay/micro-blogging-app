@@ -23,6 +23,7 @@ export interface PostData {
   comments_number: number;
 }
 
+// mutation to delete post from db, also deletes comments of a post to be deleted
 function useDeletePostMutation(post_id: string, has_image: boolean) {
   const supabaseClient = useSupabaseClient();
   const queryClient = useQueryClient();
@@ -63,6 +64,7 @@ const buttonWrapperStyle: ComponentSx = {
   alignItems: "center",
 };
 
+// link to post images on bucket
 const postImageUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/post_pictures/`;
 
 function Post({

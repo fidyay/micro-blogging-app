@@ -9,6 +9,7 @@ interface AppLinkProps {
   authorData?: UserData;
 }
 
+// link to specific page: general or author
 function AppLink({ id, authorData }: AppLinkProps) {
   const router = useRouter();
   if (id === "general") {

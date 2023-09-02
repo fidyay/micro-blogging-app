@@ -5,6 +5,7 @@ interface AppCircularProgressProps {
   sx?: ComponentSx;
 }
 
+// styled loader
 export default function AppCircularProgress({
   sx = {},
 }: AppCircularProgressProps) {

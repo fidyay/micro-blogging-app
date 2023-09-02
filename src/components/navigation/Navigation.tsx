@@ -9,6 +9,7 @@ import ErrorText from "../shared/ErrorText";
 import AppCircularProgress from "../shared/AppCircularProgress";
 import NoAuthorsText from "../shared/NoAuthorsText";
 
+// querying authors to create links for their pages
 function useAuthorsQuery() {
   const key = ["users", "authors"];
   const supabase = useSupabaseClient();

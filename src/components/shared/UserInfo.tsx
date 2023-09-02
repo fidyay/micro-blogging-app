@@ -12,6 +12,7 @@ interface UserInfoProps {
   avatarSize?: number;
 }
 
+// showing user avatar, name and date of something
 function UserInfo({ sx = {}, date, userData, avatarSize = 35 }: UserInfoProps) {
   return (
     <Box

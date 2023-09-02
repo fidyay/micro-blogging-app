@@ -6,6 +6,7 @@ interface AppBlockWrapperProps {
   sx?: ComponentSx;
 }
 
+// styled paper component
 function AppBlockWrapper({ children, sx = {} }: AppBlockWrapperProps) {
   return (
     <Paper

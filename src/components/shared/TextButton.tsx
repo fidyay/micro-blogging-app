@@ -11,6 +11,7 @@ interface TextButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
+// button that uses text as its filling
 function TextButton({
   children,
   sx = {},

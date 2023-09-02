@@ -13,6 +13,7 @@ interface AppTextFieldProps {
   register?: UseFormRegisterReturn<string>;
 }
 
+// text field for forms with styling
 const AppTextField = forwardRef(function AppTextField(
   {
     label,

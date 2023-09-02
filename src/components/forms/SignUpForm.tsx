@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import AppTextLink from "../shared/AppTextLink";
 
+// mutation to create account. Signs up a new user, saves user information on db and user avatar on bucket.
 function useSignUpMutation() {
   const router = useRouter();
   const supabaseClient = useSupabaseClient();

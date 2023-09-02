@@ -8,6 +8,7 @@ interface DateTextProps {
   sx?: ComponentSx;
 }
 
+// component to show date of authorization or post|comment creation
 function DateText({ date, shouldAddSince = false, sx = {} }: DateTextProps) {
   return (
     <Typography sx={{ fontSize: 12, ...sx }}>

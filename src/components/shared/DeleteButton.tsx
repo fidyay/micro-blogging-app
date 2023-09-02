@@ -5,6 +5,7 @@ interface DeleteButton {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
+// button to delete posts or comments
 export default function DeleteButton({ onClick }: DeleteButton) {
   return (
     <IconButton

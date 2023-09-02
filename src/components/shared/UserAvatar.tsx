@@ -16,6 +16,7 @@ interface AvatarTextProps extends AvatarProps {
 
 type UserAvatarProps = AvatarImageProps | AvatarTextProps;
 
+// function that generates color depending on user name
 function stringToColor(string: string) {
   let hash = 0;
   let i;
@@ -36,6 +37,7 @@ function stringToColor(string: string) {
   return color;
 }
 
+// function to retrieve text from name to avatar
 function stringAvatar(name: string, size: number, sx: ComponentSx) {
   return {
     sx: {
@@ -51,6 +53,7 @@ function stringAvatar(name: string, size: number, sx: ComponentSx) {
   };
 }
 
+// user avatar component with defined styling
 function UserAvatar(props: UserAvatarProps) {
   if (Object.hasOwn(props, "src")) {
     const { src, alt, size = 30, sx = {} } = props as AvatarImageProps;

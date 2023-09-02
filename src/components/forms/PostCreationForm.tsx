@@ -19,6 +19,7 @@ interface Inputs {
   img: File | null;
 }
 
+// mutation to save post on db and its image to bucket
 function useCreatePostMutation(resetForm: UseFormReset<Inputs>) {
   const queryClient = useQueryClient();
   const user = useUser();

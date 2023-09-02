@@ -10,6 +10,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import AppTextLink from "../shared/AppTextLink";
 import ErrorText from "../shared/ErrorText";
 
+// mutation to login user
 function useLoginMutation() {
   const router = useRouter();
   const supabaseClient = useSupabaseClient();

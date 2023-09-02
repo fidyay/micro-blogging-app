@@ -13,6 +13,7 @@ export interface CommentData {
   post_id: string;
 }
 
+// mutation to delete comment
 function useDeleteCommentMutation(
   id: string,
   comment_number: number,

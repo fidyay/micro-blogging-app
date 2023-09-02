@@ -14,6 +14,7 @@ import { UserData } from "../account/UserAccountControls";
 import AppCircularProgress from "../shared/AppCircularProgress";
 import NoPostsText from "../shared/NoPostsText";
 
+// hook to query posts information. It queries posts data and data of their creators and sorts them by date of creation
 function usePostsQuery(pageAuthorId: string, supabase: SBClient) {
   const key = ["posts", pageAuthorId];
 

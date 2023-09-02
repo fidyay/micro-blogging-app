@@ -12,6 +12,7 @@ import NoCommentsText from "../shared/NoCommentsText";
 import AppCircularProgress from "../shared/AppCircularProgress";
 import ErrorText from "../shared/ErrorText";
 
+// query to get comments for specific post and also information about their commentators
 function useCommentsQuery(postId: string) {
   const key = ["comments", postId];
   const supabase = useSupabaseClient();

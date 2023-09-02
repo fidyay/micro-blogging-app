@@ -9,6 +9,8 @@ interface HeadingProps {
   sx?: ComponentSx;
 }
 
+// typography component styled for heaging
+
 function Heading({ children, variant = "h1", sx = {} }: HeadingProps) {
   return (
     <Typography

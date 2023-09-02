@@ -5,6 +5,7 @@ interface ErrorTextProps {
   sx?: ComponentSx;
 }
 
+// text to show that something went wrong for the user
 function ErrorText({ sx = {} }: ErrorTextProps) {
   return (
     <Typography sx={{ color: "warning.main", ...sx }}>
