@@ -37,7 +37,7 @@ function AppLink({ id, authorData }: AppLinkProps) {
     const ad = authorData as UserData;
     return (
       <Link
-        className={router.pathname === `/feed/author/${id}` ? "chosen" : ""}
+        className={router.asPath === `/feed/author/${id}` ? "chosen" : ""}
         href={`/feed/author/${id}`}
       >
         <UserInfo

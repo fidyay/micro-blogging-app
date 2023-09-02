@@ -12,6 +12,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
         bgcolor: "primary.main",
         alignItems: "flex-start",
         py: 1,
+        justifyContent: {
+          xs: "space-between",
+          sm: "flex-start",
+        },
+        flexWrap: {
+          xs: "wrap",
+          sm: "nowrap",
+        },
       }}
     >
       {children}

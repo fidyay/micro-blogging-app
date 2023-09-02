@@ -31,6 +31,10 @@ function Navigation() {
           flexShrink: 0,
           p: 1,
           ml: 1,
+          order: {
+            xs: 2,
+            sm: 3,
+          },
         }}
       >
         <AppCircularProgress />
@@ -47,6 +51,10 @@ function Navigation() {
           flexShrink: 0,
           p: 1,
           ml: 1,
+          order: {
+            xs: 2,
+            sm: 3,
+          },
         }}
       >
         <ErrorText />
@@ -62,6 +70,10 @@ function Navigation() {
         flexShrink: 0,
         py: 1,
         ml: 1,
+        order: {
+          xs: 2,
+          sm: 3,
+        },
       }}
     >
       <Heading sx={{ mb: 1 }}>Pages</Heading>

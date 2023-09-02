@@ -95,7 +95,19 @@ function PostList({ authorId }: PostListProps) {
   const { data, isLoading, isError } = usePostsQuery(authorId, supabase);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      sx={{
+        mt: {
+          xs: 1,
+          sm: 0,
+        },
+        flexGrow: 1,
+        order: {
+          xs: 3,
+          sm: 2,
+        },
+      }}
+    >
       {userInfoError ? (
         <AppBlockWrapper sx={{ mb: 1, p: 1 }}>
           <ErrorText />
