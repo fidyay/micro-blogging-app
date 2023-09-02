@@ -50,7 +50,9 @@ function useCreatePostMutation(resetForm: UseFormReset<Inputs>) {
     onError: console.error,
     onSuccess() {
       resetForm();
-      queryClient.invalidateQueries(["posts", user?.id as string]);
+      queryClient.invalidateQueries({
+        queryKey: ["posts"],
+      });
     },
   });
 }

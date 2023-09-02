@@ -27,8 +27,8 @@ function usePostsQuery(pageAuthorId: string, supabase: SBClient) {
         .select("*")
         .eq("author_id", pageAuthorId);
     }
-    if (r.data)
-      return Promise.all(
+    if (r.data) {
+      const resolvedPostsData = await Promise.all(
         r.data.map(async (pd) => {
           const authorR = await supabase
             .from("users")
@@ -65,6 +65,13 @@ function usePostsQuery(pageAuthorId: string, supabase: SBClient) {
           return postData;
         })
       );
+      return resolvedPostsData.sort((a, b) => {
+        return (
+          new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf()
+        );
+      });
+    }
+
     return;
   });
 }

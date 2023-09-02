@@ -65,7 +65,11 @@ function Post({
         <Typography>{comments_number}</Typography>
       </Box>
 
-      <CommentList postId={id} expanded={commentListExpanded} />
+      <CommentList
+        commentsNumber={comments_number}
+        postId={id}
+        expanded={commentListExpanded}
+      />
     </AppBlockWrapper>
   );
 }
