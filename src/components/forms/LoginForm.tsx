@@ -22,7 +22,7 @@ function useLoginMutation() {
   return useMutation(async (userData: Inputs) => Login(userData), {
     onError: console.error,
     onSuccess() {
-      router.push("/feed/general");
+      router.push("/");
     },
   });
 }
