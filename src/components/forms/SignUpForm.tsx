@@ -1,13 +1,13 @@
-import AppBlockWrapper from "./AppBlockWrapper";
-import Heading from "./Heading";
-import TextButton from "./TextButton";
-import AppTextField from "./AppTextField";
-import AppImagePicker from "./AppImagePicker";
+import AppBlockWrapper from "../shared/AppBlockWrapper";
+import Heading from "../shared/Heading";
+import TextButton from "../shared/TextButton";
+import AppTextField from "../shared/AppTextField";
+import AppImagePicker from "../shared/AppImagePicker";
 import { useRouter } from "next/router";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { useMutation } from "react-query";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import ErrorText from "./ErrorText";
+import ErrorText from "../shared/ErrorText";
 import {
   FormControl,
   FormLabel,
@@ -15,7 +15,7 @@ import {
   FormControlLabel,
   Radio,
 } from "@mui/material";
-import AppTextLink from "./AppTextLink";
+import AppTextLink from "../shared/AppTextLink";
 
 function useSignUpMutation() {
   const router = useRouter();

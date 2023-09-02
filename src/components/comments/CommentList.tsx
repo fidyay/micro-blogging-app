@@ -1,16 +1,16 @@
 import Comment from "./Comment";
-import Heading from "./Heading";
+import Heading from "../shared/Heading";
 import { Accordion, Divider } from "@mui/material";
-import LeaveCommentForm from "./LeaveCommentForm";
+import LeaveCommentForm from "../forms/LeaveCommentForm";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
-import { useUserInfoQuery } from "./UserAccountControls";
-import { UserData } from "./UserAccountControls";
+import { useUserInfoQuery } from "../account/UserAccountControls";
+import { UserData } from "../account/UserAccountControls";
 import { CommentData } from "./Comment";
 import { useQuery } from "react-query";
-import NoCommentsText from "./NoCommentsText";
-import AppCircularProgress from "./AppCircularProgress";
-import ErrorText from "./ErrorText";
+import NoCommentsText from "../shared/NoCommentsText";
+import AppCircularProgress from "../shared/AppCircularProgress";
+import ErrorText from "../shared/ErrorText";
 
 function useCommentsQuery(postId: string) {
   const key = ["comments", postId];

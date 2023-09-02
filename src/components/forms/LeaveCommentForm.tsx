@@ -1,6 +1,6 @@
-import Heading from "./Heading";
-import TextButton from "./TextButton";
-import AppTextField from "./AppTextField";
+import Heading from "../shared/Heading";
+import TextButton from "../shared/TextButton";
+import AppTextField from "../shared/AppTextField";
 import { useForm, SubmitHandler, UseFormReset } from "react-hook-form";
 import { useUser, useSupabaseClient, User } from "@supabase/auth-helpers-react";
 import { useMutation, useQueryClient } from "react-query";

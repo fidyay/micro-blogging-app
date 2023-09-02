@@ -1,18 +1,18 @@
 import { Box } from "@mui/material";
 import Post from "./Post";
-import PostCreationForm from "./PostCreationForm";
-import { useUserInfoQuery } from "./UserAccountControls";
+import PostCreationForm from "../forms/PostCreationForm";
+import { useUserInfoQuery } from "../account/UserAccountControls";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { useRouter } from "next/router";
-import ErrorText from "./ErrorText";
-import AppBlockWrapper from "./AppBlockWrapper";
-import { SBClient } from "./UserAccountControls";
+import ErrorText from "../shared/ErrorText";
+import AppBlockWrapper from "../shared/AppBlockWrapper";
+import { SBClient } from "../account/UserAccountControls";
 import { useQuery } from "react-query";
 import { PostData } from "./Post";
-import { UserData } from "./UserAccountControls";
-import AppCircularProgress from "./AppCircularProgress";
-import NoPostsText from "./NoPostsText";
+import { UserData } from "../account/UserAccountControls";
+import AppCircularProgress from "../shared/AppCircularProgress";
+import NoPostsText from "../shared/NoPostsText";
 
 function usePostsQuery(pageAuthorId: string, supabase: SBClient) {
   const key = ["posts", pageAuthorId];

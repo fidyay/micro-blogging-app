@@ -1,7 +1,7 @@
-import UserInfo from "./UserInfo";
+import UserInfo from "../shared/UserInfo";
 import { Typography, Box } from "@mui/material";
-import { UserData } from "./UserAccountControls";
-import DeleteButton from "./DeleteButton";
+import { UserData } from "../account/UserAccountControls";
+import DeleteButton from "../shared/DeleteButton";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useQueryClient, useMutation } from "react-query";
 

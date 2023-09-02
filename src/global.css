@@ -20,6 +20,10 @@ a.chosen {
   align-items: center;
 }
 
+.link_author {
+  width: 100%;
+}
+
 .text_link {
   text-align: center;
   text-decoration: underline;

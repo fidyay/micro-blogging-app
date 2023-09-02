@@ -1,8 +1,8 @@
-import AppBlockWrapper from "./AppBlockWrapper";
-import UserAvatar from "./UserAvatar";
-import Heading from "./Heading";
-import DateText from "./DateText";
-import TextButton from "./TextButton";
+import AppBlockWrapper from "../shared/AppBlockWrapper";
+import UserAvatar from "../shared/UserAvatar";
+import Heading from "../shared/Heading";
+import DateText from "../shared/DateText";
+import TextButton from "../shared/TextButton";
 import { useRouter } from "next/router";
 import { SxProps, Theme } from "@mui/material";
 import {
@@ -11,8 +11,8 @@ import {
   useUser,
 } from "@supabase/auth-helpers-react";
 import { useQueryClient, useQuery } from "react-query";
-import ErrorText from "./ErrorText";
-import AppCircularProgress from "./AppCircularProgress";
+import ErrorText from "../shared/ErrorText";
+import AppCircularProgress from "../shared/AppCircularProgress";
 
 const buttonStyles: SxProps<Theme> = {
   alignSelf: "stretch",

@@ -1,8 +1,8 @@
-import AppBlockWrapper from "./AppBlockWrapper";
-import Heading from "./Heading";
-import TextButton from "./TextButton";
-import AppTextField from "./AppTextField";
-import AppImagePicker from "./AppImagePicker";
+import AppBlockWrapper from "../shared/AppBlockWrapper";
+import Heading from "../shared/Heading";
+import TextButton from "../shared/TextButton";
+import AppTextField from "../shared/AppTextField";
+import AppImagePicker from "../shared/AppImagePicker";
 import {
   useForm,
   Controller,
@@ -11,7 +11,7 @@ import {
 } from "react-hook-form";
 import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import { useMutation, useQueryClient } from "react-query";
-import ErrorText from "./ErrorText";
+import ErrorText from "../shared/ErrorText";
 
 interface Inputs {
   title: string;

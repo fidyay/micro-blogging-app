@@ -1,8 +1,8 @@
 import Link from "next/link";
-import UserInfo from "./UserInfo";
-import Heading from "./Heading";
+import UserInfo from "../shared/UserInfo";
+import Heading from "../shared/Heading";
 import { useRouter } from "next/router";
-import { UserData } from "./UserAccountControls";
+import { UserData } from "../account/UserAccountControls";
 
 interface AppLinkProps {
   id: string;
@@ -37,7 +37,10 @@ function AppLink({ id, authorData }: AppLinkProps) {
     const ad = authorData as UserData;
     return (
       <Link
-        className={router.asPath === `/feed/author/${id}` ? "chosen" : ""}
+        className={
+          (router.asPath === `/feed/author/${id}` ? "chosen" : "") +
+          " link_author"
+        }
         href={`/feed/author/${id}`}
       >
         <UserInfo

@@ -1,13 +1,13 @@
 import AppLink from "./AppLink";
-import AppBlockWrapper from "./AppBlockWrapper";
-import Heading from "./Heading";
+import AppBlockWrapper from "../shared/AppBlockWrapper";
+import Heading from "../shared/Heading";
 import { Divider } from "@mui/material";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { UserData } from "./UserAccountControls";
+import { UserData } from "../account/UserAccountControls";
 import { useQuery } from "react-query";
-import ErrorText from "./ErrorText";
-import AppCircularProgress from "./AppCircularProgress";
-import NoAuthorsText from "./NoAuthorsText";
+import ErrorText from "../shared/ErrorText";
+import AppCircularProgress from "../shared/AppCircularProgress";
+import NoAuthorsText from "../shared/NoAuthorsText";
 
 function useAuthorsQuery() {
   const key = ["users", "authors"];

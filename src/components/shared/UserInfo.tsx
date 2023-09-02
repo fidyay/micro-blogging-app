@@ -3,7 +3,7 @@ import UserAvatar from "./UserAvatar";
 import Heading from "./Heading";
 import DateText from "./DateText";
 import { ComponentSx } from "@/pages/_app";
-import { UserData, avatarsUrl } from "./UserAccountControls";
+import { UserData, avatarsUrl } from "../account/UserAccountControls";
 
 interface UserInfoProps {
   sx?: ComponentSx;

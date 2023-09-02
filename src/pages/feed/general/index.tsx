@@ -1,7 +1,7 @@
-import RootLayout from "@/components/RootLayout";
-import UserAccount from "@/components/UserAccountControls";
-import PostList from "@/components/PostList";
-import Navigation from "@/components/Navigation";
+import RootLayout from "@/components/shared/RootLayout";
+import UserAccount from "@/components/account/UserAccountControls";
+import PostList from "@/components/posts/PostList";
+import Navigation from "@/components/navigation/Navigation";
 
 export default function GeneralPage() {
   return (

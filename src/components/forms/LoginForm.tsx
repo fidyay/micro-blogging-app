@@ -1,14 +1,14 @@
-import AppBlockWrapper from "./AppBlockWrapper";
-import Heading from "./Heading";
-import TextButton from "./TextButton";
-import AppTextField from "./AppTextField";
+import AppBlockWrapper from "../shared/AppBlockWrapper";
+import Heading from "../shared/Heading";
+import TextButton from "../shared/TextButton";
+import AppTextField from "../shared/AppTextField";
 import { useRouter } from "next/router";
 import { Typography } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useMutation } from "react-query";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import AppTextLink from "./AppTextLink";
-import ErrorText from "./ErrorText";
+import AppTextLink from "../shared/AppTextLink";
+import ErrorText from "../shared/ErrorText";
 
 function useLoginMutation() {
   const router = useRouter();

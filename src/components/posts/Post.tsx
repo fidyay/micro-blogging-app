@@ -1,15 +1,15 @@
 import { Typography, Box } from "@mui/material";
 import CommentIcon from "@mui/icons-material/Comment";
-import UserInfo from "./UserInfo";
-import CommentList from "./CommentList";
-import AppBlockWrapper from "./AppBlockWrapper";
-import Heading from "./Heading";
+import UserInfo from "../shared/UserInfo";
+import CommentList from "../comments/CommentList";
+import AppBlockWrapper from "../shared/AppBlockWrapper";
+import Heading from "../shared/Heading";
 import Image from "mui-image";
 import { IconButton } from "@mui/material";
 import { ComponentSx } from "@/pages/_app";
 import { useState } from "react";
-import { UserData } from "./UserAccountControls";
-import DeleteButton from "./DeleteButton";
+import { UserData } from "../account/UserAccountControls";
+import DeleteButton from "../shared/DeleteButton";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useQueryClient, useMutation } from "react-query";
 
