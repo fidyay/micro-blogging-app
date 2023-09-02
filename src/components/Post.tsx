@@ -1,6 +1,4 @@
 import { Typography, Box } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import CommentIcon from "@mui/icons-material/Comment";
 import UserInfo from "./UserInfo";
 import CommentList from "./CommentList";
@@ -11,7 +9,9 @@ import { IconButton } from "@mui/material";
 import { ComponentSx } from "@/pages/_app";
 import { useState } from "react";
 import { UserData } from "./UserAccountControls";
-import AppCircularProgress from "./AppCircularProgress";
+import DeleteButton from "./DeleteButton";
+import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useQueryClient, useMutation } from "react-query";
 
 export interface PostData {
   id: string;
@@ -24,6 +24,41 @@ export interface PostData {
 }
 
 interface PostProps extends PostData {}
+
+function useDeletePostMutation(post_id: string, has_image: boolean) {
+  const supabaseClient = useSupabaseClient();
+  const queryClient = useQueryClient();
+  async function deletePost() {
+    if (has_image) {
+      const { data, error } = await supabaseClient.storage
+        .from("images")
+        .remove([`post_pictures/${post_id}`]);
+      if (error) console.error(error);
+    }
+    const { error: commentError } = await supabaseClient
+      .from("comments")
+      .delete()
+      .eq("post_id", post_id);
+    if (commentError) console.error(commentError);
+    const { error: postError } = await supabaseClient
+      .from("posts")
+      .delete()
+      .eq("id", post_id);
+
+    if (postError) console.error(postError);
+  }
+  return useMutation(async () => deletePost(), {
+    onError: console.error,
+    onSuccess() {
+      queryClient.invalidateQueries({
+        queryKey: ["posts"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["comments"],
+      });
+    },
+  });
+}
 
 const buttonWrapperStyle: ComponentSx = {
   display: "flex",
@@ -42,9 +77,13 @@ function Post({
   comments_number,
 }: PostProps) {
   const [commentListExpanded, setCommentListExpanded] = useState(false);
-  const [liked, setLiked] = useState(false);
+  const user = useUser();
+  const deleltePostMutation = useDeletePostMutation(id, has_image);
   return (
-    <AppBlockWrapper sx={{ mb: 1, py: 1 }}>
+    <AppBlockWrapper sx={{ mb: 1, py: 1, position: "relative" }}>
+      {user?.id === author.id ? (
+        <DeleteButton onClick={deleltePostMutation.mutate} />
+      ) : null}
       <UserInfo userData={author} date={created_at} sx={{ mx: 1, pl: 0 }} />
       <Heading sx={{ mx: 1, mt: 1 }}>{title}</Heading>
       <Typography sx={{ mx: 1 }}>{description}</Typography>
