@@ -26,6 +26,9 @@ function UserAvatar(props: UserAvatarProps) {
           height: `${size}px`,
           bgcolor: "secondary.main",
           color: "secondary.contrastText",
+          "& img": {
+            transform: "scale(1.3)",
+          },
           ...sx,
         }}
         src={src}

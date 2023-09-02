@@ -64,6 +64,7 @@ interface UserData {
   id: string;
   is_author: boolean;
   name: string;
+  since: string;
 }
 
 function useUserInfoQuery(userId: string, supabase: SBClient) {
@@ -143,7 +144,11 @@ export default function UserAccountControls() {
             </UserAvatar>
           )}
           <Heading sx={{ mt: 1 }}>{data?.name as string}</Heading>
-          <DateText sx={{ mb: 1 }} date="12.12.2012" shouldAddSince />
+          <DateText
+            sx={{ mb: 1 }}
+            date={data?.since as string}
+            shouldAddSince
+          />
           <TextButton onClick={() => LogOut(supabaseClient)} sx={buttonStyles}>
             Logout
           </TextButton>

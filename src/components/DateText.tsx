@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import { ComponentSx } from "@/pages/_app";
+import moment from "moment";
 
 interface DateTextProps {
   date: string;
@@ -10,8 +11,8 @@ interface DateTextProps {
 function DateText({ date, shouldAddSince = false, sx = {} }: DateTextProps) {
   return (
     <Typography sx={{ fontSize: 12, ...sx }}>
-      {shouldAddSince ? "Since " : ""}
-      {date}
+      {shouldAddSince ? "since " : ""}
+      {moment(date).format("ll")}
     </Typography>
   );
 }
