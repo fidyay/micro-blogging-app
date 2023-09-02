@@ -14,11 +14,8 @@ function AppLink({ id, authorData }: AppLinkProps) {
   if (id === "general") {
     return (
       <Link
-        className={
-          (router.pathname === "/feed/general" ? "chosen" : "") +
-          " link_general"
-        }
-        href="/feed/general"
+        className={(router.pathname === "/" ? "chosen" : "") + " link_general"}
+        href="/"
       >
         <Heading
           sx={{
@@ -38,10 +35,9 @@ function AppLink({ id, authorData }: AppLinkProps) {
     return (
       <Link
         className={
-          (router.asPath === `/feed/author/${id}` ? "chosen" : "") +
-          " link_author"
+          (router.asPath === `/author/${id}` ? "chosen" : "") + " link_author"
         }
-        href={`/feed/author/${id}`}
+        href={`/author/${id}`}
       >
         <UserInfo
           userData={{
