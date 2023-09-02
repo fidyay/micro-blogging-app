@@ -115,7 +115,13 @@ function CommentList({
       {commentsData ? (
         commentsData.length ? (
           commentsData.map((comment) => {
-            return <Comment key={comment.id} {...comment} />;
+            return (
+              <Comment
+                key={comment.id}
+                {...comment}
+                comment_number={commentsNumber}
+              />
+            );
           })
         ) : (
           <NoCommentsText />
