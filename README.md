@@ -1,5 +1,7 @@
 # micro-blogging platform
 
+Link to deploy [on vercel](https://micro-blogging-app.vercel.app/).
+
 A simple micro-blogging platform with the following features.
 
 It has Sign Up / Login Page
