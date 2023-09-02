@@ -23,8 +23,6 @@ export interface PostData {
   comments_number: number;
 }
 
-interface PostProps extends PostData {}
-
 function useDeletePostMutation(post_id: string, has_image: boolean) {
   const supabaseClient = useSupabaseClient();
   const queryClient = useQueryClient();
@@ -75,7 +73,7 @@ function Post({
   author,
   has_image,
   comments_number,
-}: PostProps) {
+}: PostData) {
   const [commentListExpanded, setCommentListExpanded] = useState(false);
   const user = useUser();
   const deleltePostMutation = useDeletePostMutation(id, has_image);

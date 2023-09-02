@@ -17,7 +17,7 @@ function useCommentsQuery(postId: string) {
   const supabase = useSupabaseClient();
 
   return useQuery(key, async () => {
-    let { data: comments, error } = await supabase
+    const { data: comments, error } = await supabase
       .from("comments")
       .select("*")
       .eq("post_id", postId);
