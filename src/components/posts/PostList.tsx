@@ -90,7 +90,7 @@ function PostList({ authorId }: PostListProps) {
     supabase
   );
   const shouldPostCreationFormRender = !!(
-    router.pathname.includes("general") && userInfoData?.is_author
+    router.pathname === "/" && userInfoData?.is_author
   );
 
   const { data, isLoading, isError } = usePostsQuery(authorId, supabase);

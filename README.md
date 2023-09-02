@@ -17,3 +17,10 @@ Users with an Author profile cannot comment.
 
 Tech Stack:
 TypeScript, Next.js, Material UI, react-hook-form, React Query, Supabase
+
+### Screenshots
+
+![login page](/screenshots/login.png "Login page").
+![sign up page](/screenshots/sign_up.png "Sign up page").
+![general page](/screenshots/general.png "General page").
+![author page](/screenshots/author_page.png "Author page").
