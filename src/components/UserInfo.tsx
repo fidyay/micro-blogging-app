@@ -3,12 +3,16 @@ import UserAvatar from "./UserAvatar";
 import Heading from "./Heading";
 import DateText from "./DateText";
 import { ComponentSx } from "@/pages/_app";
+import { UserData, avatarsUrl } from "./UserAccountControls";
 
 interface UserInfoProps {
   sx?: ComponentSx;
+  date: string;
+  userData: UserData;
+  avatarSize?: number;
 }
 
-function UserInfo({ sx = {} }: UserInfoProps) {
+function UserInfo({ sx = {}, date, userData, avatarSize = 35 }: UserInfoProps) {
   return (
     <Box
       sx={{
@@ -19,10 +23,20 @@ function UserInfo({ sx = {} }: UserInfoProps) {
         ...sx,
       }}
     >
-      <UserAvatar sx={{ mr: 1 }}>Ex</UserAvatar>
-      <Box>
-        <Heading sx={{ fontSize: 14 }}>Author</Heading>
-        <DateText sx={{ fontSize: 12 }} date="12.12.2012" />
+      {userData.has_avatar ? (
+        <UserAvatar
+          size={avatarSize}
+          alt={userData.name}
+          src={avatarsUrl + userData.id}
+        />
+      ) : (
+        <UserAvatar size={avatarSize} sx={{ mr: 1 }}>
+          {userData.name}
+        </UserAvatar>
+      )}
+      <Box sx={{ ml: 1 }}>
+        <Heading sx={{ fontSize: 14 }}>{userData.name}</Heading>
+        <DateText sx={{ fontSize: 12 }} date={date} />
       </Box>
     </Box>
   );

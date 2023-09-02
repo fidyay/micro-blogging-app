@@ -36,26 +36,32 @@ export interface Database {
       posts: {
         Row: {
           author_id: string | null
+          comments_number: number | null
           created_at: string | null
           description: string | null
           has_image: boolean | null
           id: string
+          likes_number: number | null
           title: string
         }
         Insert: {
           author_id?: string | null
+          comments_number?: number | null
           created_at?: string | null
           description?: string | null
           has_image?: boolean | null
           id?: string
+          likes_number?: number | null
           title?: string
         }
         Update: {
           author_id?: string | null
+          comments_number?: number | null
           created_at?: string | null
           description?: string | null
           has_image?: boolean | null
           id?: string
+          likes_number?: number | null
           title?: string
         }
         Relationships: []
@@ -66,18 +72,21 @@ export interface Database {
           id: string
           is_author: boolean | null
           name: string | null
+          since: string | null
         }
         Insert: {
           has_avatar?: boolean | null
           id?: string
           is_author?: boolean | null
           name?: string | null
+          since?: string | null
         }
         Update: {
           has_avatar?: boolean | null
           id?: string
           is_author?: boolean | null
           name?: string | null
+          since?: string | null
         }
         Relationships: []
       }

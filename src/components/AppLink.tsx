@@ -35,7 +35,16 @@ function AppLink({ id, chosen = false }: AppLinkProps) {
         className={router.pathname === `/author/${id}` ? "chosen" : ""}
         href={`/author/${id}`}
       >
-        <UserInfo />
+        <UserInfo
+          userData={{
+            id: "ssdg",
+            has_avatar: false,
+            since: "12.12.2210",
+            name: "Author",
+            is_author: true,
+          }}
+          date="12.12.2210"
+        />
       </Link>
     );
   }

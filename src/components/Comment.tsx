@@ -12,7 +12,17 @@ function Comment() {
         },
       }}
     >
-      <UserInfo sx={{ pl: 0 }} />
+      <UserInfo
+        userData={{
+          id: "ssdg",
+          has_avatar: false,
+          since: "12.12.2210",
+          name: "Author",
+          is_author: true,
+        }}
+        date="12.12.2210"
+        sx={{ pl: 0 }}
+      />
       <Typography>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit.
       </Typography>

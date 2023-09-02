@@ -4,7 +4,7 @@ import Heading from "./Heading";
 import DateText from "./DateText";
 import TextButton from "./TextButton";
 import { useRouter } from "next/router";
-import { SxProps, Theme, CircularProgress } from "@mui/material";
+import { SxProps, Theme } from "@mui/material";
 import {
   useSupabaseClient,
   SupabaseClient,
@@ -13,13 +13,14 @@ import {
 } from "@supabase/auth-helpers-react";
 import { useQueryClient, QueryClient, useQuery } from "react-query";
 import ErrorText from "./ErrorText";
+import AppCircularProgress from "./AppCircularProgress";
 
 const buttonStyles: SxProps<Theme> = {
   alignSelf: "stretch",
   mb: 1,
 };
 
-type SBClient = SupabaseClient<any, "public", any>;
+export type SBClient = SupabaseClient<any, "public", any>;
 
 async function LogOut(supabaseClient: SBClient) {
   const { error } = await supabaseClient.auth.signOut();
@@ -59,7 +60,7 @@ async function DeleteAccount(
   }
 }
 
-interface UserData {
+export interface UserData {
   has_avatar: boolean;
   id: string;
   is_author: boolean;
@@ -77,7 +78,7 @@ export function useUserInfoQuery(userId: string, supabase: SBClient) {
   });
 }
 
-const avatarsUrl = `${
+export const avatarsUrl = `${
   process.env.NEXT_PUBLIC_SUPABASE_URL as string
 }/storage/v1/object/public/images/avatars/`;
 
@@ -102,7 +103,7 @@ export default function UserAccountControls() {
           mr: 1,
         }}
       >
-        <CircularProgress />
+        <AppCircularProgress />
       </AppBlockWrapper>
     );
   }
