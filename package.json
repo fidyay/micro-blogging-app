@@ -26,6 +26,7 @@
     "eslint-config-next": "13.4.19",
     "moment": "^2.29.4",
     "mui-file-input": "^3.0.0",
+    "mui-image": "^1.0.7",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -34,6 +35,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@types/mui-image": "^1.0.1",
     "supabase": "^1.88.0"
   }
 }

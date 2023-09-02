@@ -2,19 +2,23 @@ import Link from "next/link";
 import UserInfo from "./UserInfo";
 import Heading from "./Heading";
 import { useRouter } from "next/router";
+import { UserData } from "./UserAccountControls";
 
 interface AppLinkProps {
   id: string;
-  chosen?: boolean;
+  authorData?: UserData;
 }
 
-function AppLink({ id, chosen = false }: AppLinkProps) {
+function AppLink({ id, authorData }: AppLinkProps) {
   const router = useRouter();
   if (id === "general") {
     return (
       <Link
-        className={router.pathname === "/general" ? "chosen" : ""}
-        href="/general"
+        className={
+          (router.pathname === "/feed/general" ? "chosen" : "") +
+          " link_general"
+        }
+        href="/feed/general"
       >
         <Heading
           sx={{
@@ -30,20 +34,21 @@ function AppLink({ id, chosen = false }: AppLinkProps) {
       </Link>
     );
   } else {
+    const ad = authorData as UserData;
     return (
       <Link
-        className={router.pathname === `/author/${id}` ? "chosen" : ""}
-        href={`/author/${id}`}
+        className={router.pathname === `/feed/author/${id}` ? "chosen" : ""}
+        href={`/feed/author/${id}`}
       >
         <UserInfo
           userData={{
-            id: "ssdg",
-            has_avatar: false,
-            since: "12.12.2210",
-            name: "Author",
+            id: ad.id,
+            has_avatar: ad.has_avatar,
+            since: ad.since,
+            name: ad.name,
             is_author: true,
           }}
-          date="12.12.2210"
+          date={ad.since}
         />
       </Link>
     );

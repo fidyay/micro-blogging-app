@@ -48,7 +48,7 @@ function useSignUpMutation() {
   return useMutation(async (userData: Inputs) => signUp(userData), {
     onError: console.error,
     onSuccess() {
-      router.push("/general");
+      router.push("/feed/general");
     },
   });
 }

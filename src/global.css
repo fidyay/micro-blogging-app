@@ -13,6 +13,13 @@ a.chosen {
   background-color: #292a2e;
 }
 
+.link_general {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .text_link {
   text-align: center;
   text-decoration: underline;

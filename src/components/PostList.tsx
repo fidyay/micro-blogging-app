@@ -60,7 +60,6 @@ function usePostsQuery(pageAuthorId: string, supabase: SBClient) {
             created_at: pd.created_at,
             author: authorData,
             has_image: pd.has_image,
-            likes_number: pd.likes_number,
             comments_number: pd.comments_number,
           };
           return postData;
@@ -70,7 +69,11 @@ function usePostsQuery(pageAuthorId: string, supabase: SBClient) {
   });
 }
 
-function PostList() {
+interface PostListProps {
+  authorId: string;
+}
+
+function PostList({ authorId }: PostListProps) {
   const router = useRouter();
   const user = useUser();
   const supabase = useSupabaseClient();
@@ -82,10 +85,10 @@ function PostList() {
     router.pathname.includes("general") && userInfoData?.is_author
   );
 
-  const { data, isLoading, isError } = usePostsQuery("general", supabase);
+  const { data, isLoading, isError } = usePostsQuery(authorId, supabase);
 
   return (
-    <Box>
+    <Box sx={{ flexGrow: 1 }}>
       {userInfoError ? (
         <AppBlockWrapper sx={{ mb: 1, p: 1 }}>
           <ErrorText />

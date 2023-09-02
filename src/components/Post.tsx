@@ -6,11 +6,12 @@ import UserInfo from "./UserInfo";
 import CommentList from "./CommentList";
 import AppBlockWrapper from "./AppBlockWrapper";
 import Heading from "./Heading";
-import Image from "next/image";
+import Image from "mui-image";
 import { IconButton } from "@mui/material";
 import { ComponentSx } from "@/pages/_app";
 import { useState } from "react";
 import { UserData } from "./UserAccountControls";
+import AppCircularProgress from "./AppCircularProgress";
 
 export interface PostData {
   id: string;
@@ -19,7 +20,6 @@ export interface PostData {
   created_at: string;
   author: UserData;
   has_image: boolean;
-  likes_number: number;
   comments_number: number;
 }
 
@@ -39,7 +39,6 @@ function Post({
   created_at,
   author,
   has_image,
-  likes_number,
   comments_number,
 }: PostProps) {
   const [commentListExpanded, setCommentListExpanded] = useState(false);
@@ -49,25 +48,21 @@ function Post({
       <UserInfo userData={author} date={created_at} sx={{ mx: 1, pl: 0 }} />
       <Heading sx={{ mx: 1, mt: 1 }}>{title}</Heading>
       <Typography sx={{ mx: 1 }}>{description}</Typography>
-      {/* {has_image ? (
-        <Image src={postImageUrl + id} alt={title} width={150} height={150} />
-      ) : null} */}
-      <Box sx={{ display: "flex", mx: 1 }}>
-        <Box sx={buttonWrapperStyle}>
-          <IconButton onClick={() => setLiked(!liked)} color="warning">
-            {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          </IconButton>
-          <Typography>{likes_number}</Typography>
-        </Box>
-        <Box sx={{ ...buttonWrapperStyle, ml: 1 }}>
-          <IconButton
-            onClick={() => setCommentListExpanded(!commentListExpanded)}
-            color="info"
-          >
-            <CommentIcon />
-          </IconButton>
-          <Typography>{comments_number}</Typography>
-        </Box>
+      {has_image ? (
+        <Image
+          style={{ marginLeft: "0px", marginTop: "10px", marginBottom: "10px" }}
+          src={postImageUrl + id}
+          alt={title}
+        />
+      ) : null}
+      <Box sx={{ ...buttonWrapperStyle, ml: 1 }}>
+        <IconButton
+          onClick={() => setCommentListExpanded(!commentListExpanded)}
+          color="info"
+        >
+          <CommentIcon />
+        </IconButton>
+        <Typography>{comments_number}</Typography>
       </Box>
 
       <CommentList expanded={commentListExpanded} />
