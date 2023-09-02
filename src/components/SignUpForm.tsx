@@ -178,7 +178,9 @@ function SignUpForm() {
           </RadioGroup>
         </FormControl>
         <AppTextLink href="/login">Or you can log in.</AppTextLink>
-        <TextButton type="submit">Submit</TextButton>
+        <TextButton disabled={signUpMutation.isLoading} type="submit">
+          Submit
+        </TextButton>
       </form>
     </AppBlockWrapper>
   );

@@ -75,7 +75,9 @@ function LoginForm() {
           register={register("password")}
         />
         <AppTextLink href="/sign-up">Or you can sign up.</AppTextLink>
-        <TextButton type="submit">Submit</TextButton>
+        <TextButton disabled={loginMutation.isLoading} type="submit">
+          Submit
+        </TextButton>
       </form>
     </AppBlockWrapper>
   );

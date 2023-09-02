@@ -7,6 +7,7 @@ interface TextButtonProps {
   sx?: ComponentSx;
   warning?: boolean;
   type?: "submit" | "button";
+  disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -16,10 +17,12 @@ function TextButton({
   warning = false,
   type = "button",
   onClick,
+  disabled = false,
 }: TextButtonProps) {
   const theme = warning ? "warning" : "secondary";
   return (
     <Button
+      disabled={disabled}
       onClick={onClick}
       type={type}
       sx={{

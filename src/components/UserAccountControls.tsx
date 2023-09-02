@@ -67,7 +67,7 @@ interface UserData {
   since: string;
 }
 
-function useUserInfoQuery(userId: string, supabase: SBClient) {
+export function useUserInfoQuery(userId: string, supabase: SBClient) {
   const key = ["users", userId];
 
   return useQuery(key, async () => {
